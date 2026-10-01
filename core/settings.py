@@ -144,6 +144,19 @@ MAILERS = {
     },
 }
 
+from datetime import timedelta
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=20),  # coincide con los 20 min de sesión que definimos
+    'REFRESH_TOKEN_LIFETIME': timedelta(hours=8),
+}
+
 CORS_ALLOW_ALL_ORIGINS = True
 
 AUTH_USER_MODEL = 'cuentas.Usuario'
